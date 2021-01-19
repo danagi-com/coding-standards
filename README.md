@@ -10,9 +10,12 @@ Style guide and coding standards that have to be taken into account when writing
         - [CSS](#css)
         - [Javascript](#javascript)
     - [Trailing Whitespace](#trailing-whitespace)
-    - [Encoding](#encoding)
+    - [Avoid long lines of code](#avoid-long-lines-of-code)
     - [Line endings](#line-endings)
+    - [Encoding](#encoding)
     - [Comments](#comments)
+    - [Use filenames in lower case](#use-filenames-in-lower-case)
+    - [File Extensions](#file-extensions)
 
 ## Background
 This document defines formatting and style rules for HTML, CSS. and Javascript The aim is to standardize and maintain the cooperation and the code quality. This applies to unformatted work files that use HTML, CSS and Javascript.
@@ -49,7 +52,18 @@ function example() {
 ```
 
 ### Trailing Whitespace
+
 Remove trailing white spaces.
+
+### Avoid long lines of code
+
+When using an HTML editor, it is inconvenient to scroll right and left to read the HTML code.
+
+Vermeiden Sie Codezeilen mit mehr als 100 Zeichen.
+
+### Line endings
+
+Format files with `\n` at the end of a line (Unix line endings). Do not use `\r\n` (Windows line endings) or `\r` (Apple operating systems).
 
 ### Encoding
 
@@ -61,15 +75,38 @@ Specify the coding in HTML templates and documents using `<meta charset="utf-8" 
 
 (For more information about encodings and when and how to specify them, see Working with Character Encodings in HTML and CSS.)
 
-### Line endings
-
-Format files with `\n` at the end of a line (Unix line endings). Do not use `\r\n` (Windows line endings) or `\r` (Apple operating systems).
-
 ### Comments
 
 Explain the code as needed, if possible.
 
 Use comments to explain the code: what does it cover, what is its purpose, why is each solution used or preferred?
+
+### Use filenames in lower case
+
+To avoid problems and inconsistencies, all file names are given in lowercase letters. For better readability and to separate individual words, a kebab case is used:
+
+```
+<!-- Correct -->
+johndoe.jpg
+hello-world.html
+script-name.js
+style-sheet.css
+```
+```
+<!-- Wrong -->
+johndoe.JPG
+HelloWorld.html
+scriptName.js
+style_sheet.css
+```
+
+### File Extensions
+
+HTML files must have a **.html** extension.
+
+CSS files must have a **.css** extension.
+
+JavaScript files must have a **.js** extension.
 
 ## HTML Style Rules
 
@@ -156,6 +193,18 @@ Attribute values, including numeric attributes, must be placed in quotation mark
 
 <!-- Wrong -->
 <input type=text name=title size=20>
+```
+
+### Spaces and Equal Signs
+
+Spaces around equal signs are not allowed.
+
+```html
+<!-- Correct -->
+<link rel="stylesheet" href="styles.css">
+
+<!-- Wrong -->
+<link rel = "stylesheet" href = "styles.css">
 ```
 
 ### Special characters
