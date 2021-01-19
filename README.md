@@ -1,6 +1,19 @@
 # Coding Standards
 Style guide and coding standards that have to be taken into account when writing HTML(5), (S)CSS and Javascript in Danagi projects.
 
+## Table of contents
+
+- [Background](#background)
+- [General](#general)
+    - [Indentation](#indentation)
+        - [HTML](#html)
+        - [CSS](#css)
+        - [Javascript](#javascript)
+    - [Trailing Whitespace](#trailing-whitespace)
+    - [Encoding](#encoding)
+    - [Line endings](#line-endings)
+    - [Comments](#comments)
+
 ## Background
 This document defines formatting and style rules for HTML, CSS. and Javascript The aim is to standardize and maintain the cooperation and the code quality. This applies to unformatted work files that use HTML, CSS and Javascript.
 
