@@ -145,3 +145,31 @@ Attribute values, including numeric attributes, must be placed in quotation mark
 <input type=text name=title size=20>
 ```
 
+### Special characters
+
+Encode special characters, for example:
+
+```html
+&amp;
+&quot;
+&copy;
+```
+
+### HTML anchors
+
+If you need to link to a section in an HTML document, use the ID attribute:
+
+```html
+<!-- Correct -->
+<a href="#anchor">Link</a>
+<div id="anchor"></div>
+```
+
+The use of named anchors is prohibited.
+
+```html
+<!-- Wrong -->
+<a href="#anchor">Link</a>
+<a name="anchor"></a>
+```
+
