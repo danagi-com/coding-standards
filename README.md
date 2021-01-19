@@ -1,5 +1,5 @@
 # Coding Standards
-Style guide and coding standards that have to be taken into account when writing HTML(5), (S)CSS and Javascript in Danagi projects.
+Style guide and coding standards that have to be taken into account when writing HTML(5), SCSS and Javascript in Danagi projects.
 
 ## Table of contents
 
@@ -7,7 +7,7 @@ Style guide and coding standards that have to be taken into account when writing
 - [General](#general)
     - [Indentation](#indentation)
         - [HTML](#html)
-        - [CSS](#css)
+        - [SCSS](#scss)
         - [Javascript](#javascript)
     - [Trailing Whitespace](#trailing-whitespace)
     - [Avoid long lines of code](#avoid-long-lines-of-code)
@@ -16,6 +16,9 @@ Style guide and coding standards that have to be taken into account when writing
     - [Comments](#comments)
     - [Use filenames in lower case](#use-filenames-in-lower-case)
     - [File Extensions](#file-extensions)
+- [HTML Style Rules](#html-style-rules)
+- [SCSS Style Rules](#scss-style-rules)
+- [Javascript Style Rules](#javascript-style-rules)
 
 ## Background
 This document defines formatting and style rules for HTML, CSS. and Javascript The aim is to standardize and maintain the cooperation and the code quality. This applies to unformatted work files that use HTML, CSS and Javascript.
@@ -37,8 +40,8 @@ Don’t use tabs or mix tabs and spaces for indentation.
 </ul>
 ```
 
-#### CSS
-```css
+#### SCSS
+```scss
 .example {
     color: blue;
 }
@@ -104,7 +107,7 @@ style_sheet.css
 
 HTML files must have a **.html** extension.
 
-CSS files must have a **.css** extension.
+SCSS files must have a **.scss** extension.
 
 JavaScript files must have a **.js** extension.
 
@@ -190,7 +193,8 @@ Attribute values, including numeric attributes, must be placed in quotation mark
 ```html
 <!-- Correct -->
 <input type="text" name="title" size="20">
-
+```
+```html
 <!-- Wrong -->
 <input type=text name=title size=20>
 ```
@@ -202,7 +206,8 @@ Spaces around equal signs are not allowed.
 ```html
 <!-- Correct -->
 <link rel="stylesheet" href="styles.css">
-
+```
+```html
 <!-- Wrong -->
 <link rel = "stylesheet" href = "styles.css">
 ```
@@ -235,3 +240,148 @@ The use of named anchors is prohibited.
 <a name="anchor"></a>
 ```
 
+## SCSS Style Rules
+
+SCSS is used to expand the bootstrap styles!
+
+Use nested style rules instead of repeating the same selectors over and over:
+
+```scss
+nav {
+
+    li {
+        display: inline-block;
+        
+        a {
+            display: block;
+            padding: 6px 12px;
+            text-decoration: none;
+        }
+    }
+}
+```
+
+#### Watch out!
+
+Nested rules are very helpful, but they can also make it difficult to visualize the actual CSS data generated. The deeper you nest, the more bandwidth it takes to serve your CSS and the more work it takes the browser to render it. Keep the selectors flat!
+
+### Selector Lists
+
+In order to be able to read the individual rules faster, individual selectors are written in lists, each of which is on a separate line. Likewise, the rules are each written on a separate line:
+
+```scss
+.selector,
+.another-selector {
+    ul,
+    p {
+        margin-right: 0;
+        margin-left: 0;
+        padding-bottom: 0;
+    }
+}
+```
+
+### Selector Combinators
+
+With nested selectors, cobiners are always placed at the beginning of the inner selector.
+
+```scss
+/* Correct */
+h2 {
+    + p {
+        border-top: 1px solid gray;
+    }
+}
+```
+```scss
+/* Wrong */
+ul > {
+    li {
+        list-style-type: none;
+    }
+}
+
+p {
+    ~ {
+        span {
+            opacity: 0.8;
+        }
+    }
+}
+```
+
+### Comments
+
+Only silent comments are used in SCSS and are not output as CSS.
+
+Single-line comments should be treated like multi-line comments. These always begin with `/*`, end with `*/` and each individual line begins with `*`.
+
+```scss
+/* Correct */
+/* Single line comment */
+/* Comment
+ * about
+ * multiple
+ * Lines
+ */
+```
+```scss
+// Wrong
+// Single line comment
+/*! loud comment */
+```
+
+### Order of rules
+
+For a uniform and regulated cooperation, the details are given in the following order:
+
+1. List @extend(s) First
+1. List @include(s) Next
+1. List “Regular” Styles Next
+1. Nested Pseudo Classes and Pseudo Elements Next
+1. Nested Selectors Last
+
+```scss
+.anything {
+    @extend %module; 
+    @include transition(all 0.3s ease);
+    background: green;
+    
+    &:hover {
+        background: red;
+    }
+    
+    &::before {
+        content: "";
+        display: block;
+    }
+    
+    > h3 {
+        @include transform(rotate(90deg));
+        border-bottom: 1px solid white;
+    }
+}
+```
+
+
+### Never Write Vendor Prefixes
+
+Vendor prefixes are time-sensitive. As browsers get updated over time, the need for them will disappear. If you are using autoprefixer when compiling Sass, you should never have to write it.
+
+Use Bootstrap's autoprefixer to avoid writing these manually.
+
+### Maximum Nesting: Three Levels Deep
+
+If you get deeper, you're probably writing a crappy selector. It sucks that it depends too heavily on the HTML structure (fragile), too specific (too powerful), and not very reusable (not useful). It's hard to understand even on the edge.
+
+```scss
+header {
+    .nav {
+        li {
+            // no more!
+        }
+    }
+}
+```
+
+## Javascript Style Rules
