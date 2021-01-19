@@ -411,7 +411,7 @@ Names of jQuery objects are preceded by a dollar sign.
 
 ```javascript
 var firstName = 'John';
-var age = 49;
+var age = 51;
 var $div = $('div#id');
 ```
 
@@ -436,7 +436,7 @@ var values = ["Volkswagen", "Audi", "Tesla"];
 var person = {
     firstName: "John",
     lastName: "Doe",
-    age: 50
+    age: 51
 };
 ```
 
@@ -476,7 +476,7 @@ if (time < 20) {
 var person = {
     firstName: "John",
     lastName: "Doe",
-    age: 50
+    age: 51
 };
 ```
 
