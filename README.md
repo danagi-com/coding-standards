@@ -265,6 +265,20 @@ nav {
 
 Nested rules are very helpful, but they can also make it difficult to visualize the actual CSS data generated. The deeper you nest, the more bandwidth it takes to serve your CSS and the more work it takes the browser to render it. Keep the selectors flat!
 
+### Notation of selectors
+
+The kebab case notation is used in SCSS: Multiple words are usually separated with minus (-) in CSS selectors. All letters are lowercase. Class names start with a letter.
+
+```scss
+/* Correct */
+.my-selector {}
+```
+```scss
+/* Wrong */
+.my_selector {}
+.mySelector {}
+```
+
 ### Selector Lists
 
 In order to be able to read the individual rules faster, individual selectors are written in lists, each of which is on a separate line. Likewise, the rules are each written on a separate line:
@@ -345,6 +359,7 @@ For a uniform and regulated cooperation, the details are given in the following 
 .anything {
     @extend %module; 
     @include transition(all 0.3s ease);
+    
     background: green;
     
     &:hover {
@@ -385,3 +400,85 @@ header {
 ```
 
 ## Javascript Style Rules
+
+### Variable Names
+
+At Danagi we use camelCase for identifier names (variables and functions).
+
+All names start with a letter.
+
+Names of jQuery objects are preceded by a dollar sign.
+
+```javascript
+var firstName = 'John';
+var age = 49;
+var $div = $('div#id');
+```
+
+### Spaces Around Operators
+
+Always put spaces around operators ( = + - * / ), and after commas:
+
+```javascript
+var x = y + z;
+var name = ["John", "Public", "Doe"];
+```
+
+### Statement Rules
+
+#### General rules for simple statements
+
+- Always end a simple statement with a semicolon.
+
+```javascript
+var values = ["Volkswagen", "Audi", "Tesla"];
+
+var person = {
+    firstName: "John",
+    lastName: "Doe",
+    age: 50
+};
+```
+
+#### General rules for complex (compound) statements:
+
+- Put the opening bracket at the end of the first line.
+- Use one space before the opening bracket.
+- Put the closing bracket on a new line, without leading spaces.
+- Do not end a complex statement with a semicolon.
+
+```javascript
+function toCelsius(fahrenheit) {
+    return (5 / 9) * (fahrenheit - 32);
+}
+
+for (i = 0; i < 5; i++) {
+    x += i;
+}
+
+if (time < 20) {
+  greeting = "Good day";
+} else {
+  greeting = "Good evening";
+}
+```
+
+#### Object Rules
+
+- Place the opening bracket on the same line as the object name.
+- Use colon plus one space between each property and its value.
+- Use quotes around string values, not around numeric values.
+- Do not add a comma after the last property-value pair.
+- Place the closing bracket on a new line, without leading spaces.
+- Always end an object definition with a semicolon.
+
+```javascript
+var person = {
+    firstName: "John",
+    lastName: "Doe",
+    age: 50
+};
+```
+
+Single-line writing of short objects is not permitted.
+
